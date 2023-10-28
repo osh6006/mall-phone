@@ -12,15 +12,17 @@ const Navbar = async () => {
   return (
     <div className="relative border-b">
       <Container>
-        <div className="relative mx-auto w-[45px] py-2">
-          <Link href={"/"}>
-            <Image
-              alt="logo"
-              className="rounded-full "
-              src={"/logo.png"}
-              width={45}
-              height={45}
-            />
+        <div className="flex flex-col justify-center items-center relative mx-auto py-2">
+          <Link
+            href={"/"}
+            className="p-1 w-[40] h-[40] rounded-full border-2 border-main px-2 py-1 -space-y-1"
+          >
+            <div className="flex items-center text-sm">
+              <h1>M P</h1>
+            </div>
+            <div className="flex items-center text-sm">
+              <h1>O M</h1>
+            </div>
           </Link>
         </div>
         <div className="absolute right-10 top-1/4 -translate-y-1/4">
