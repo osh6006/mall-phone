@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Container from "./ui/container";
 import Link from "next/link";
 import MainNav from "./main-nav";
