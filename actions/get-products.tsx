@@ -13,11 +13,11 @@ interface Query {
 
 const getProducts = async (query: Query): Promise<Product[]> => {
   try {
-    const url = qs.stringify({
-      URL,
+    const url = qs.stringifyUrl({
+      url: URL,
       query: {
         colorId: query.colorId,
-        seriseId: query.categoryId,
+        seriseId: query.seriseId,
         categoryId: query.categoryId,
         isFeatured: query.isFeatured,
       },
@@ -25,8 +25,8 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     const res = await fetch(URL);
     return res.json();
   } catch (error) {
-    console.log("GET_CATEGORIES_ERROR", error);
-    throw new Error("GET_CATEGORIES_ERROR");
+    console.log("GET_PRODUCTS_ERROR", error);
+    throw new Error("GET_PRODUCTS_ERROR");
   }
 };
 

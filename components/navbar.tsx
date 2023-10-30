@@ -1,8 +1,8 @@
 import Container from "./ui/container";
 import Link from "next/link";
 import MainNav from "./main-nav";
-import getCategories from "@/actions/get-category";
 import NavbarButtonGroup from "./navbar-button-group";
+import getCategories from "@/actions/get-category";
 
 export const revalidate = 0;
 

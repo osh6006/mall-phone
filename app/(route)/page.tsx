@@ -9,7 +9,9 @@ import Recent from "./components/recent";
 export const revalidate = 0;
 
 const HomePage = async () => {
-  const products = await getProducts({ isFeatured: true });
+  const products = (await getProducts({ isFeatured: true })).filter(
+    (_, i) => i < 4
+  );
   const banners = await getBillboards();
 
   return (
