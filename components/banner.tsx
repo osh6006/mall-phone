@@ -30,8 +30,13 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
         return (
           <div
             key={banner.imageURL}
-            className="relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover"
-            style={{ background: `url(${banner?.imageURL})` }}
+            className="relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-center bg-cover"
+            style={{
+              background: `url(${banner?.imageURL})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundColor: "black",
+            }}
           >
             <div className="w-full h-full flex flex-col justify-center items-center text-center gap-y-8">
               <div className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs">

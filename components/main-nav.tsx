@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/libs/utils";
 import { Category } from "@/type";
 
+export const revalidate = 0;
+
 interface MainNavProps {
   data: Category[];
 }
