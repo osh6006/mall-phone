@@ -16,7 +16,7 @@ export interface Product {
   name: string;
   price: string;
   isFeatured: boolean;
-  serise: Serise;
+  storage: Storage;
   color: Color;
   images: Image[];
 }
@@ -26,10 +26,9 @@ export interface Image {
   url: string;
 }
 
-export interface Serise {
+export interface Storage {
   id: string;
   name: string;
-  modelNum: string;
 }
 
 export interface Color {

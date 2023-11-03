@@ -4,7 +4,7 @@ const URL = `${process.env.NEXT_PUBLIC_BASIC_URL}/billboards`;
 
 const getBillboards = async (): Promise<Billboard[]> => {
   try {
-    const res = await fetch(URL);
+    const res = await fetch(URL, { cache: "no-store" });
     return res.json();
   } catch (error) {
     console.log("GET_BILLBOARDS_ERROR", error);

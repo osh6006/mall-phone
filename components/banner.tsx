@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 
 import { Billboard } from "@/type";
-import useMount from "@/hooks/useMount";
+import useMount from "@/hooks/use-mount";
 
 interface BannerProps {
   data: Billboard[];

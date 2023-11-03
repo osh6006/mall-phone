@@ -1,7 +1,7 @@
 "use client";
 import { ShoppingCart } from "lucide-react";
 
-import useMount from "@/hooks/useMount";
+import useMount from "@/hooks/use-mount";
 
 import Button from "./ui/button";
 

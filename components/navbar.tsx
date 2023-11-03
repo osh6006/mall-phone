@@ -2,7 +2,7 @@ import Container from "./ui/container";
 import Link from "next/link";
 import MainNav from "./main-nav";
 import NavbarButtonGroup from "./navbar-button-group";
-import getCategories from "@/actions/get-category";
+import getCategories from "@/actions/get-categories";
 
 export const revalidate = 0;
 

@@ -1,6 +1,6 @@
 "use client";
 
-import useMount from "@/hooks/useMount";
+import useMount from "@/hooks/use-mount";
 
 interface CurrencyProps {
   value?: number | string;

@@ -7,7 +7,7 @@ const URL = `${process.env.NEXT_PUBLIC_BASIC_URL}/products`;
 interface Query {
   categoryId?: string;
   colorId?: string;
-  seriseId?: string;
+  storageId?: string;
   isFeatured?: boolean;
 }
 
@@ -17,7 +17,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
       url: URL,
       query: {
         colorId: query.colorId,
-        seriseId: query.seriseId,
+        storageId: query.storageId,
         categoryId: query.categoryId,
         isFeatured: query.isFeatured,
       },

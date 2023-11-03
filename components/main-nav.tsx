@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/libs/utils";
 import { Category } from "@/type";
+import useMount from "@/hooks/use-mount";
 
 export const revalidate = 0;
 
@@ -14,11 +15,15 @@ interface MainNavProps {
 
 const MainNav: React.FC<MainNavProps> = ({ data }) => {
   const pathName = usePathname();
+
+  const { isMounted } = useMount();
+  if (!isMounted) return null;
+
   const routes = data?.map((route) => {
     return {
-      href: `category/${route.id}`,
+      href: `/category/${route.id}`,
       label: route.name,
-      active: pathName === `category/${route.id}`,
+      active: pathName === `/category/${route.id}`,
     };
   });
 
