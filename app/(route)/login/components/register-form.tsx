@@ -1,3 +1,4 @@
+import postRegister from "@/actions/post-register";
 import toast from "react-hot-toast";
 
 interface UserForm {
@@ -10,16 +11,16 @@ interface RegisterFormProps {
   changeForm: (form: "login" | "register") => void;
   changeFormData: (formData: UserForm) => void;
   formData: UserForm;
+  formReset: () => void;
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({
   changeForm,
   changeFormData,
   formData,
+  formReset,
 }) => {
   const validateForm = () => {
-    const newErrors = {};
-
     if (!formData.email) {
       toast.error("이름을 입력해 주세요");
       return false;
@@ -53,14 +54,30 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
     changeFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      toast.success("폼이 유효합니다");
+      try {
+        const { ok, msg } = await postRegister({
+          email: formData.email,
+          password: formData.password,
+        });
+
+        if (ok) {
+          toast.success(msg);
+          formReset();
+          changeForm("login");
+        } else {
+          toast.error(msg);
+        }
+      } catch (error) {
+        toast.error("서버에서 오류가 발생하였습니다.");
+      }
     }
   };
 
   const handleFormChange = (form: "register" | "login") => {
+    formReset();
     changeForm(form);
   };
   return (

@@ -19,7 +19,13 @@ const LoginPage = () => {
     passwordConfirm: "",
   });
 
-  console.log(formType);
+  const formReset = () => {
+    setFormData({
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    });
+  };
 
   return (
     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -34,6 +40,7 @@ const LoginPage = () => {
           changeForm={setFormType}
           changeFormData={setFormData}
           formData={formData}
+          formReset={formReset}
         />
       )}
       {formType === "register" && (
@@ -41,6 +48,7 @@ const LoginPage = () => {
           changeForm={setFormType}
           changeFormData={setFormData}
           formData={formData}
+          formReset={formReset}
         />
       )}
     </div>

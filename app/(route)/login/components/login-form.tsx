@@ -1,5 +1,7 @@
 "use client";
 
+import { signIn, signOut, useSession } from "next-auth/react";
+
 interface UserForm {
   email: string;
   password: string;
@@ -10,14 +12,17 @@ interface LoginFormProps {
   changeForm: (form: "login" | "register") => void;
   changeFormData: (formData: UserForm) => void;
   formData: UserForm;
+  formReset: () => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
   changeForm,
   changeFormData,
   formData,
+  formReset,
 }) => {
   const handleFormChange = (form: "register" | "login") => {
+    formReset();
     changeForm(form);
   };
 
@@ -26,7 +31,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
     changeFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    signIn();
+  };
 
   return (
     <>
