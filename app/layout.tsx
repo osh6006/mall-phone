@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 
+import { SessionProvider } from "next-auth/react";
+
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ModalProvider from "@/providers/modal-provider";
+import ToastProvider from "@/providers/toast-provider";
 
 const inter = Noto_Sans_KR({ subsets: ["latin"] });
 
@@ -22,6 +25,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={inter.className}>
         <ModalProvider />
+        <ToastProvider />
         <Navbar />
         {children}
         <Footer />
