@@ -1,6 +1,8 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 interface UserForm {
   email: string;
@@ -21,6 +23,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
   formData,
   formReset,
 }) => {
+  const router = useRouter();
+  const { data: session } = useSession();
+  console.log(session);
+
   const handleFormChange = (form: "register" | "login") => {
     formReset();
     changeForm(form);
@@ -31,9 +37,22 @@ const LoginForm: React.FC<LoginFormProps> = ({
     changeFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    signIn();
+
+    const result = await signIn("LoginCredentials", {
+      email: formData.email,
+      password: formData.password,
+      redirect: false,
+      callbackUrl: "/",
+    });
+
+    if (result?.ok) {
+      toast.success("로그인에 성공하셨습니다.");
+      result?.url && router.push("/");
+    } else {
+      toast.error("비밀번호 혹은 아이디가 일치하지 않습니다");
+    }
   };
 
   return (
@@ -97,6 +116,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
           </span>
         </p>
       </form>
+      <button
+        type="button"
+        onClick={() => signOut({ callbackUrl: "/", redirect: false })}
+      >
+        test
+      </button>
     </>
   );
 };

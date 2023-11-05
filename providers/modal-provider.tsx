@@ -10,7 +10,7 @@ const ModalProvider = () => {
   if (!isMounted) return null;
   return (
     <>
-      <PreviewModal />;
+      <PreviewModal />
     </>
   );
 };

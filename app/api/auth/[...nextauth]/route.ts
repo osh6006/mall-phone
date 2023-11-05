@@ -1,10 +1,14 @@
+import { X } from "lucide-react";
+import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const handler = NextAuth({
+export const authOption: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Custom Credentials",
+      id: "LoginCredentials",
+      name: "credentials",
+      type: "credentials",
       credentials: {
         email: {
           label: "이메일",
@@ -15,24 +19,25 @@ const handler = NextAuth({
       },
 
       async authorize(credentials, req) {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BASIC_URL}/api/login`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: credentials?.email,
-              password: credentials?.password,
-            }),
-          }
-        );
+        if (!credentials) {
+          throw new Error("No credentials.");
+        }
 
-        const user = await res.json();
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: credentials?.email,
+            password: credentials?.password,
+          }),
+        });
 
-        if (user) {
-          return user;
+        const { ok, result, msg } = await res.json();
+
+        if (ok) {
+          return result;
         } else {
           return null;
         }
@@ -40,9 +45,21 @@ const handler = NextAuth({
     }),
   ],
 
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+
+    async session({ session, token }) {
+      session.user = token as any;
+      return session;
+    },
+  },
   pages: {
     signIn: "/login",
   },
-});
+};
+
+const handler = NextAuth(authOption);
 
 export { handler as GET, handler as POST };
