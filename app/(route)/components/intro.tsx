@@ -1,5 +1,6 @@
 import React from "react";
 import Heading from "../../../components/ui/heading";
+import Image from "next/image";
 
 const Intro = () => {
   return (
@@ -11,12 +12,64 @@ const Intro = () => {
       />
       <div className="flex w-full gap-x-2 mt-8">
         <div className="flex-1 flex flex-col gap-y-2">
-          <div className="w-full h-44 bg-cover bg-[url('/images/galaxy.jpg')]"></div>
-          <div className="flex-1 bg-cover bg-[url('/images/galaxy.webp')]"></div>
+          <div className="w-full h-44">
+            <Image
+              src="/images/galaxy.jpg"
+              alt=""
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              width={0}
+              height={0}
+            />
+          </div>
+          <div className="flex-1 w-full">
+            <Image
+              src="/images/galaxy.webp"
+              alt=""
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              width={0}
+              height={0}
+            />
+          </div>
         </div>
         <div className="flex-1 flex flex-col gap-y-2">
-          <div className="w-full bg-cover h-64 bg-[url('/images/mi2.jpg')]"></div>
-          <div className="w-full bg-cover h-48 bg-[url('/images/iphone.jpg')]"></div>
+          <div className="h-64 w-full">
+            <Image
+              src="/images/mi2.jpg"
+              alt=""
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              width={0}
+              height={0}
+            />
+          </div>
+          <div className="flex-1 w-full">
+            <Image
+              src="/images/iphone.jpg"
+              alt=""
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              width={0}
+              height={0}
+            />
+          </div>
         </div>
       </div>
     </div>
