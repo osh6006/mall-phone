@@ -1,5 +1,6 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
@@ -11,10 +12,20 @@ const Summary = () => {
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
 
+  const session = useSession();
+  const user = session.data?.user;
+
+  const router = useRouter();
+
   const totalPrice = items.reduce((prev, curr) => (prev += +curr.price), 0);
 
   const onCheckOut = () => {
-    toast.success("구매 프로세스 시작");
+    if (user) {
+      toast.success("구매 프로세스 시작");
+    } else {
+      router.push("/login");
+      toast.error("로그인을 해주세요");
+    }
   };
 
   return (

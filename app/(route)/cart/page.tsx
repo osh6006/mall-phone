@@ -1,14 +1,16 @@
 "use client";
 
+import useMount from "@/hooks/use-mount";
+
 import Container from "@/components/ui/container";
 import useCart from "@/hooks/use-cart";
-import useMount from "@/hooks/use-mount";
 import CartItem from "./components/cart-item";
 import Summary from "./components/summary";
 
 const Cartpage = () => {
   const { isMounted } = useMount();
   const cart = useCart();
+
   if (!isMounted) return null;
 
   return (

@@ -25,7 +25,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
 }) => {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log(session);
 
   const handleFormChange = (form: "register" | "login") => {
     formReset();
@@ -116,12 +115,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
           </span>
         </p>
       </form>
-      <button
-        type="button"
-        onClick={() => signOut({ callbackUrl: "/", redirect: false })}
-      >
-        test
-      </button>
     </>
   );
 };

@@ -9,10 +9,10 @@ export default async function LoginLayout({
 }) {
   const session = await getServerSession(authOption);
 
-  if (session && session.user) {
-    console.log(session.user);
-    redirect("/");
-  }
+  // if (session && session.user) {
+  //   console.log(session.user);
+  //   redirect("/");
+  // }
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
