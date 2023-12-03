@@ -46,52 +46,51 @@
 
 ## :dart: About
 
-Describe your project
+Nextjs로 만든 간단한 쇼핑몰 프로젝트 입니다.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
-
 ## :rocket: Technologies
 
-The following tools were used in this project:
+이 프로젝트에는 다음의 기술들이 사용되었습니다.
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
+![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![react-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![styled-components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
 ## :white_check_mark: Requirements
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+- 시작하기 전에, :checkered_flag: [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) 가 설치되어 있어야 합니다.
+- `.env` 파일 안에 환경 변수가 있어야 합니다. ohs6006@gmail.com 으로 메일을 주시면 응답을 받을 수 있습니다.
 
 ## :checkered_flag: Starting
 
 ```bash
-# Clone this project
-$ git clone https://github.com/osh6006/mall-phone
+# 프로젝트를 복제하세요
+$ git clone https://github.com/osh6006/football-mania.git
 
-# Access
-$ cd mall-phone
+# 폴더 이동
+$ cd football-mania
 
-# Install dependencies
-$ yarn
+# dependencies 설치
+$ npm i
 
-# Run the project
-$ yarn start
+# 프로젝트 실행
+$ npm run dev
 
-# The server will initialize in the <http://localhost:3000>
+# 로컬 서버 <http://localhost:3000>으로 시작합니다!
 ```
 
 ## :memo: License
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-Made with :heart: by <a href="https://github.com/osh6006" target="_blank">OHS</a>
+Made with :heart: by <a href="https://github.com/osh6006" target="_blank">ohs6006</a>
 
 &#xa0;
 
-<a href="#top">Back to top</a>
+<a href="#top">제일 위로 가기</a>

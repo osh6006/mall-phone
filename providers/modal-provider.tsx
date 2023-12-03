@@ -6,8 +6,8 @@ import PreviewModal from "@/components/ui/preview-modal";
 
 const ModalProvider = () => {
   const { isMounted } = useMount();
-
   if (!isMounted) return null;
+
   return (
     <>
       <PreviewModal />
