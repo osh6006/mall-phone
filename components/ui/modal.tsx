@@ -35,6 +35,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
                 "
                 >
                   <div className="absolute right-4 top-4">
+                    adfe
                     <IconButton onClick={onClose} icon={<X size={15} />} />
                   </div>
                   {children}
